@@ -10,7 +10,9 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #1A1A1A;
+    padding-bottom: 0;
+    background-color: #0C0C0C;
+    flex-direction:row;
 }
 .logo {
     font-size: 24px;
@@ -23,20 +25,22 @@ nav {
 nav a {
     color: white;
     margin: 0 15px;
+    font-size: 20px;
     text-decoration: none;
 }
 .button {
+    font-size: 20px;
     background-color: #FF007F;
     color: white;
-    padding: 10px 20px;
+    padding: 20px 30px;
+    margin-right: 60px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 .face-block {
     display: flex;
-    align-items: center;
-    padding: 40px 20px;
+    padding: 0px 20px;
 }
 .face-block img {
     max-width: 100%;
@@ -44,7 +48,17 @@ nav a {
 }
 .face-text {
     flex-grow: 1;
-    padding-right: 20px;
+    padding-left: 70px;
+    padding-top: 60px;
+    max-width: 60%;
+    flex-direction: column;
+}
+.face-text img{
+    padding-left: 45px;
+    width: auto;
+    max-height: 25%;
+    margin-top: 0; /* Убираем верхний отступ у изображения */
+            display: block;
 }
 .section {
     padding: 40px 20px;
@@ -91,6 +105,30 @@ button.submit-button {
     border-radius: 5px;
     cursor: pointer;
 }
+.logo-img {
+    max-width: 100%; /* Ограничиваем ширину изображения */
+    height: auto;    /* Высота будет автоматически подстраиваться */
+}
+.face-text h2{
+    font-size: 50px;
+}
+.face-text p{
+    font-size: 25px;
+}
+.face-image {
+    flex: 1; /* Занимает 50% ширины */
+    /* Путь к вашему изображению */
+    flex-shrink: 0;
+    width: 300px;
+    padding-right: 10px;
+     /* Изображение будет покрывать всю область */
+    text-align: left;
+    padding-top: 0%;
+    max-width: 25%;
+}
+.face-image img{
+    padding-top: 0%;
+}
 
 /* Адаптивные стили */
 @media (max-width: 600px) {
@@ -101,5 +139,14 @@ button.submit-button {
     .face-text {
         padding-right: 0; /* Убираем отступ для мобильных */
         padding-bottom: 20px; /* Добавляем отступ снизу */
+    }
+    .logo img {
+        width: 80%; /* Уменьшаем размер логотипа на мобильных устройствах */
+    }
+    .face-image {
+        display: none; /* Скрываем изображение при ширине экрана 600px и меньше */
+    }
+    nav{
+        display: none;
     }
 }
