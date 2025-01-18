@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.devox - Дизайн и Разработка</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">.devox</div>
+    <nav>
+        <a href="#what-we-do">Что мы делаем</a>
+        <a href="#prices">Цены</a>
+        <a href="#development-process">Этапы разработки</a>
+    </nav>
+    <button class="button">Обсудить проект</button>
+</header>
+
+<section class="face-block">
+    <div class="face-text">
+        <h2>Мы предлагаем индивидуальные решения под ваши бизнес-цели</h2>
+        <p>Дизайн, разработка мобильных приложений и веб-приложений.</p>
+    </div>
+    <img src="https://via.placeholder.com/300x500" alt="Смартфон">
+</section>
+
+<section id="what-we-do" class="section">
+    <h2>Что мы делаем</h2>
+    <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Мобильная разработка
+        </div>
+        <div class="accordion-content">
+            <p>Мы создаем высококачественные мобильные приложения для iOS и Android.</p>
+        </div>
+    </div>
+    <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Веб разработка
+        </div>
+        <div class="accordion-content">
+            <p>Разработка современных веб-приложений с использованием последних технологий.</p>
+        </div>
+    </div>
+    <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Дизайн
+        </div>
+        <div class="accordion-content">
+            <p>Создание уникального дизайна, который выделит ваш продукт на рынке.</p>
+        </div>
+    </div>
+</section>
+
+<section id="prices" class="section price-table">
+    <h2>Цены</h2>
+    <p>Мы предлагаем конкурентоспособные цены на все наши услуги. Свяжитесь с нами для получения индивидуального предложения.</p>
+</section>
+
+<section id="development-process" class="form-section">
+    <h2>Обсудить проект</h2>
+    <form action="#" method="post">
+        <input type="text" placeholder="Ваше имя" required>
+        <input type="email" placeholder="Ваш email" required>
+        <textarea rows="4" placeholder="Описание проекта" required></textarea>
+        <button type="submit" class="submit-button">Отправить</button>
+    </form>
+</section>
+
+<script>
+    function toggleAccordion(header) {
+        const content = header.nextElementSibling;
+
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
