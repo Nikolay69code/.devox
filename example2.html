@@ -2,50 +2,37 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Мобильная Разработка - Неадаптированный</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
-        .content {
-            padding: 20px;
-        }
-        h1 {
-            font-size: 24px;
-        }
-        p {
-            line-height: 1.6;
-        }
+    font-family: Arial, sans-serif;
+}
+
+.section {
+    padding: 20px;
+}
+
+.divider {
+    border: none;
+    height: 2px; /* Толщина линии */
+    background-color: #000; /* Цвет линии */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
     </style>
+    <title>Разделитель</title>
 </head>
 <body>
+    <div class="section" id="section1">
+        <h1>Секция 1</h1>
+        <p>Это первая секция.</p>
+    </div>
 
-<header>
-    <h1>Мобильная Разработка</h1>
-</header>
+    <hr class="divider">
 
-<div class="content">
-    <h2>Что мы предлагаем</h2>
-    <p>Мы создаем высококачественные мобильные приложения для iOS и Android. Наша команда опытных разработчиков готова реализовать любые ваши идеи.</p>
-
-    <h2>Наши услуги</h2>
-    <p>Мы предлагаем полный спектр услуг по мобильной разработке, включая:</p>
-    <ul>
-        <li>Разработка приложений</li>
-        <li>UI/UX дизайн</li>
-        <li>Тестирование и поддержка</li>
-    </ul>
-</div>
-
+    <div class="section" id="section2">
+        <h1>Секция 2</h1>
+        <p>Это вторая секция.</p>
+    </div>
 </body>
 </html>
