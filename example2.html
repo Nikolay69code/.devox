@@ -3,36 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Этапы разработки сайта</title>
     <style>
         body {
-    font-family: Arial, sans-serif;
-}
-
-.section {
-    padding: 20px;
-}
-
-.divider {
-    border: none;
-    height: 2px; /* Толщина линии */
-    background-color: #000; /* Цвет линии */
-    margin: 20px 0; /* Отступы сверху и снизу */
-}
-
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            margin: 0;
+            padding: 20px;
+        }
+        .stages {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin: 20px 0;
+        }
+        .stage {
+            background-color: #007BFF;
+            color: white;
+            border-radius: 50px;
+            padding: 20px 30px;
+            margin: 0 15px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            width: 150px; /* Ширина блока */
+        }
+        .arrow {
+            width: 50px;
+            height: 10px;
+            background-color: #007BFF;
+            position: absolute;
+            z-index: 0;
+        }
+        .arrow::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -20px;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 20px solid #007BFF; /* Цвет стрелки */
+        }
+        .arrow:first-of-type {
+            display: none; /* Скрываем первую стрелку */
+        }
     </style>
-    <title>Разделитель</title>
 </head>
 <body>
-    <div class="section" id="section1">
-        <h1>Секция 1</h1>
-        <p>Это первая секция.</p>
-    </div>
 
-    <hr class="divider">
+<h1>Этапы разработки сайта</h1>
 
-    <div class="section" id="section2">
-        <h1>Секция 2</h1>
-        <p>Это вторая секция.</p>
+<div class="stages">
+    <div class="row">
+        <div class="stage">
+            <h3>1. Исследование</h3>
+            <p>Анализ требований и целей проекта.</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="stage">
+            <h3>2. Проектирование</h3>
+            <p>Создание макетов и структуры сайта.</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="stage">
+            <h3>3. Дизайн</h3>
+            <p>Разработка визуального стиля и интерфейса.</p>
+        </div>
     </div>
+    <div class="row">
+        <div class="stage">
+            <h3>4. Разработка</h3>
+            <p>Кодирование и интеграция функционала.</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="stage">
+            <h3>5. Тестирование</h3>
+            <p>Проверка работы сайта и устранение ошибок.</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="stage">
+            <h3>6. Запуск</h3>
+            <p>Публикация сайта в интернете.</p>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

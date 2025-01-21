@@ -62,10 +62,13 @@ nav a {
 }
 .section {
     padding: 40px 20px;
+    padding: 20px;
+    text-align: left;
+    background-color: #0C0C0C;
 }
 .section h2 {
     margin-bottom: 20px;
-
+    font-size: 40px;
 }
 .accordion {
     background-color: #D9D9D9;
@@ -101,7 +104,7 @@ nav a {
 }
 
 .price-table {
-    background-color: #1A1A1A;
+    background-color: #0C0C0C;
     padding: 20px;
     border-radius: 5px;
 }
@@ -147,10 +150,6 @@ button.submit-button {
 .face-image img{
     padding-top: 0%;
 }
-.section {
-    padding: 20px;
-    text-align: left;
-}
 
 .price-blocks {
     display: flex;
@@ -159,8 +158,8 @@ button.submit-button {
 }
 
 .price-block {
-    background-color: #f9f9f9; /* Цвет фона блока */
-    border-radius: 10px; /* Закругленные края */
+    background-color: #D9D9D9; /* Цвет фона блока */
+    border-radius: 30px; /* Закругленные края */
     width: 220px; /* Ширина блока */
     margin: 10px; /* Отступы между блоками */
     padding: 15px; /* Внутренние отступы */
@@ -168,18 +167,71 @@ button.submit-button {
 }
 
 .price-block img {
-    width: 100%; /* Ширина изображения на всю ширину блока */
+     /* Ширина изображения на всю ширину блока */
     border-radius: 10px 10px 0 0; /* Закругление верхних краев изображения */
+    padding-left: 80px;
 }
 
+.image-web-sait{
+    width: 25%;
+}
+.image-design{
+    width: 40%;
+}
+.image-mobile{
+    width: 22%; /* Изображение не превышает ширину контейнера */
+}
+.image-bot{
+    width: 27%;
+}
 .price-block h3 {
-    margin: 10px 0; /* Отступы для заголовка */
+    margin: 20px 0px; /* Отступы для заголовка */
+    color: #000;
 }
 
 .price-block p {
-    color: #555; /* Цвет текста описания */
+    color: #000; /* Цвет текста описания */
 }
 
+.section-price-table{
+    background-color: #0C0C0C;
+    padding-left: 80px;
+    padding-right: 90px;
+    padding-bottom: 40px;
+}
+.section-price-table h2{
+    font-size: 40px;
+}
+.section-price-table p{
+    font-size: 20px;
+}
+
+.stages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.stages h2{
+    font-size: 40px;
+}
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 20px 0;
+}
+.stage {
+    background-color: #FF007F;
+    color: white;
+    border-radius: 50px;
+    padding: 20px 30px;
+    margin: 0 15px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 150px; /* Ширина блока */
+}
 /* Адаптивные стили */
 @media (max-width: 600px) {
     .face-block {
