@@ -1,4 +1,11 @@
+html {
+    scroll-behavior: smooth; /* Включаем плавную прокрутку */
+}
 body {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center;
+    flex-direction: column;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -7,7 +14,6 @@ body {
 }
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 20px;
     padding-bottom: 0;
@@ -17,25 +23,39 @@ header {
 .logo {
     font-size: 24px;
     font-weight: bold;
+    margin: 0%;
+}
+.logo-img {
+    max-width: 100%; /* Ограничиваем ширину изображения */
+    height: auto;    /* Высота будет автоматически подстраиваться */
+    
 }
 nav {
     flex-grow: 1;
     text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
 }
 nav a {
     color: white;
     margin: 0 15px;
     font-size: 20px;
     text-decoration: none;
+    transition: all 0.3s ease; /* Плавный переход для всех свойств*/ 
+}
+
+nav a:hover {
+    text-decoration: underline; /* Подчеркивание текста при наведении */
+    font-size: 1.4em; /* Увеличение размера шрифта при наведении */
 }
 .button {
     font-size: 20px;
     background-color: #FF007F;
     color: white;
     padding: 20px 30px;
-    margin-right: 60px;
+    margin-right: 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -44,7 +64,7 @@ button:hover {
 }
 .face-block {
     display: flex;
-    padding: 0px 20px;
+    padding: 0px 10px;
 }
 .face-block img {
     max-width: 100%;
@@ -65,8 +85,6 @@ button:hover {
             display: block;
 }
 .section {
-    padding: 40px 20px;
-    padding: 20px;
     text-align: left;
     background-color: #0C0C0C;
 }
@@ -116,9 +134,8 @@ form {
     margin-top: 40px;
     background-color: #222;
     padding: 10px;
-    margin-left: 30%;
-    width: 600px;
-    height: 550px;
+    width: 40%;
+    height: 60%;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
@@ -155,10 +172,6 @@ form button {
     width:120px;
 }
 
-.logo-img {
-    max-width: 100%; /* Ограничиваем ширину изображения */
-    height: auto;    /* Высота будет автоматически подстраиваться */
-}
 .face-text h2{
     font-size: 50px;
 }
