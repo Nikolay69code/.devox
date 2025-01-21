@@ -163,7 +163,28 @@
     <p>&copy; 2025 Частная веб-студия DEVOX. Все права защищены.</p>
 </footer>
 
+<button class="scroll-to-top" id="scrollToTopBtn">
+    &#8593; <!-- Стрелка вверх -->
+</button>
 <script>
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+// Показать кнопку при прокрутке вниз
+window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollToTopBtn.style.display = 'flex'; // Показываем кнопку
+    } else {
+        scrollToTopBtn.style.display = 'none'; // Скрываем кнопку
+    }
+};
+
+// Прокрутка к началу страницы при нажатии на кнопку
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Плавная прокрутка
+    });
+});
     function toggleAccordion(header) {
     const content = header.nextElementSibling;
     const arrow = header.querySelector('.arrow');

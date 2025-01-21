@@ -37,6 +37,10 @@ nav a {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+button:hover {
+    transform: scale(1.1); /* Увеличение кнопки на 10% */
 }
 .face-block {
     display: flex;
@@ -150,9 +154,7 @@ form button {
     height: 50px;
     width:120px;
 }
-button:hover {
-    background-color: #45a049;
-}
+
 .logo-img {
     max-width: 100%; /* Ограничиваем ширину изображения */
     height: auto;    /* Высота будет автоматически подстраиваться */
@@ -264,6 +266,29 @@ footer {
     text-align: center;
     padding: 10px;
     background-color: #0C0C0C;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: none; /* Скрываем кнопку по умолчанию */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.scroll-to-top:hover {
+    background-color: #0056b3;
+}
+.arrow-up {
+    font-size: 60px; /* Размер стрелки */
 }
 /* Адаптивные стили */
 @media (max-width: 600px) {

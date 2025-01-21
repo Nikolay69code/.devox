@@ -3,109 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Квадратная форма</title>
+    <title>Кнопка "Наверх"</title>
     <style>
         body {
-            background-color: black;
-            color: white;
             font-family: Arial, sans-serif;
-            display: flex;
+            height: 2000px; /* Для демонстрации прокрутки */
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: none; /* Скрываем кнопку по умолчанию */
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        form {
-            background-color: #222;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            width: 300px; /* Фиксированная ширина */
-            height: 300px; /* Фиксированная высота */
-            display: flex;
-            flex-direction: column; /* Вертикальное расположение элементов */
-            justify-content: space-between; /* Равномерное распределение пространства */
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0; /* Уменьшенные отступы */
-            border: none;
-            border-radius: 4px;
-            background-color: #D9D9D9;
-            color: black;
-        }
-        textarea {
-            resize: none; /* Запрет изменения размера текстового поля */
-        }
-        label {
-            margin-bottom: 5px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
             cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
-        button:hover {
-            background-color: #45a049;
+        .scroll-to-top:hover {
+            background-color: #0056b3;
+        }
+        .arrow-up {
+            font-size: 24px; /* Размер стрелки */
         }
     </style>
 </head>
 <body>
 
-    <form id="contactForm">
-        <label for="name">Имя:</label>
-        <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+<button class="scroll-to-top" id="scrollToTopBtn">
+    &#8593; <!-- Стрелка вверх -->
+</button>
 
-        <label for="contact">Email или ник в Telegram:</label>
-        <input type="text" id="contact" name="contact" placeholder="Введите ваш email или ник в Telegram" required>
+<script>
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-        <label for="project-type">Тип проекта:</label>
-        <select id="project-type" name="project-type" required>
-            <option value="" disabled selected>Выберите тип проекта</option>
-            <option value="Дизайн">Дизайн</option>
-            <option value="Сайт">Сайт</option>
-            <option value="Мобильное приложение">Мобильное приложение</option>
-            <option value="Бот">Бот</option>
-            <option value="Другое">Другое</option>
-        </select>
+    // Показать кнопку при прокрутке вниз
+    window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollToTopBtn.style.display = 'flex'; // Показываем кнопку
+        } else {
+            scrollToTopBtn.style.display = 'none'; // Скрываем кнопку
+        }
+    };
 
-        <label for="description">Описание проекта:</label>
-        <textarea id="description" name="description" rows="4" placeholder="Опишите ваш проект" required></textarea>
-
-        <button type="submit">Отправить</button>
-    </form>
-
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-                const response = await fetch('/send', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                });
-
-                if (response.ok) {
-                    alert('Сообщение отправлено!');
-                } else {
-                    alert('Ошибка при отправке сообщения.');
-                }
-            } catch (error) {
-                console.error('Ошибка:', error);
-                alert('Ошибка при отправке сообщения.');
-            }
+    // Прокрутка к началу страницы при нажатии на кнопку
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Плавная прокрутка
         });
-    </script>
+    });
+</script>
 
 </body>
 </html>
