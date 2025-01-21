@@ -108,9 +108,16 @@ button:hover {
     font-size: 25px;
     color: #000;
 }
+
+.accordion-header p{
+    font-size: 25px;
+    color: #000;
+    padding-right: 700px;
+    
+}
 .do-section{
-    padding-left: 80px;
-    padding-right: 90px;
+    padding-left: 0px;
+    padding-right: 0px;
     padding-bottom: 40px;
 }
 .do-section h2{
