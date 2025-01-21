@@ -17,7 +17,7 @@
         <a href="#prices">Цены</a>
         <a href="#development-process">Этапы разработки</a>
     </nav>
-    <button class="button">Обсудить проект</button>
+    <a href="#contactForm"><button class="button">Обсудить проект</button></a>
 </header>
 
 <section class="face-block">
@@ -98,7 +98,7 @@
     </div>
 </section>
 
-<section class="stages">
+<section id= "development-process" class="stages">
     <h2>Этапы разработки сайта</h2>
     <div class="row">
         <div class="stage">
@@ -134,15 +134,34 @@
     </div>
 </section>
 
-<section id="development-process" class="form-section">
+<form id="contactForm">
     <h2>Обсудить проект</h2>
-    <form action="#" method="post">
-        <input type="text" placeholder="Ваше имя" required>
-        <input type="email" placeholder="Ваш email" required>
-        <textarea rows="4" placeholder="Описание проекта" required></textarea>
-        <button type="submit" class="submit-button">Отправить</button>
-    </form>
-</section>
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+
+    <label for="contact">Email или Telegram username:</label>
+    <input type="text" id="contact" name="contact" placeholder="Введите ваш email или ник в Telegram" required>
+
+    <label for="project-type">Тип проекта:</label>
+    <select id="project-type" name="project-type" required>
+        <option value="" disabled selected>Выберите тип проекта</option>
+        <option value="Дизайн">Дизайн</option>
+        <option value="Сайт">Сайт</option>
+        <option value="Мобильное приложение">Мобильное приложение</option>
+        <option value="Бот">Бот</option>
+        <option value="Другое">Другое</option>
+    </select>
+
+    <label for="description">Описание проекта:</label>
+    <textarea id="description" name="description" rows="4" placeholder="Опишите ваш проект" required></textarea>
+
+    <button type="submit">Отправить</button>
+</form>
+
+<footer>
+    <p>По все вопросам можно обратиться на эту почту: devox_company@mail.ru</p>
+    <p>&copy; 2025 Частная веб-студия DEVOX. Все права защищены.</p>
+</footer>
 
 <script>
     function toggleAccordion(header) {
@@ -155,8 +174,32 @@
     } else {
         content.style.display = "block";
         arrow.style.transform = "rotate(90deg)"; // Поворачиваем стрелочку вниз
-    }
-}
+    }}
+    document.getElementById('contactForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/send', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    alert('Сообщение отправлено!');
+                } else {
+                    alert('Ошибка при отправке сообщения.');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('Ошибка при отправке сообщения.');
+            }
+        });
 </script>
 
 </body>
