@@ -3,65 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кнопка "Наверх"</title>
+    <title>Движущийся текст</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            height: 2000px; /* Для демонстрации прокрутки */
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 20px;
-        }
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: none; /* Скрываем кнопку по умолчанию */
+            display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .block {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
-        .scroll-to-top:hover {
-            background-color: #0056b3;
-        }
-        .arrow-up {
-            font-size: 24px; /* Размер стрелки */
+
+        .text {
+            position: absolute;
+            transition: transform 0.1s ease; /* Плавное перемещение текста */
         }
     </style>
 </head>
 <body>
 
-<button class="scroll-to-top" id="scrollToTopBtn">
-    &#8593; <!-- Стрелка вверх -->
-</button>
+    <div class="block">
+        <div class="text">Наведи на меня!</div>
+    </div>
 
-<script>
-    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    <script>
+        const block = document.querySelector('.block');
+        const text = document.querySelector('.text');
 
-    // Показать кнопку при прокрутке вниз
-    window.onscroll = function() {
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            scrollToTopBtn.style.display = 'flex'; // Показываем кнопку
-        } else {
-            scrollToTopBtn.style.display = 'none'; // Скрываем кнопку
-        }
-    };
+        block.addEventListener('mousemove', (event) => {
+            const { left, top, width, height } = block.getBoundingClientRect();
+            const x = event.clientX - left; // Положение курсора по X относительно блока
+            const y = event.clientY - top; // Положение курсора по Y относительно блока
 
-    // Прокрутка к началу страницы при нажатии на кнопку
-    scrollToTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' // Плавная прокрутка
+            // Рассчитаем новое положение текста
+            const offsetX = (x / width) * 100 - 50; // Сдвиг текста по X
+            const offsetY = (y / height) * 100 - 50; // Сдвиг текста по Y
+
+            text.style.transform = `translate(${offsetX}%, ${offsetY}%)`;
         });
-    });
-</script>
+
+        block.addEventListener('mouseleave', () => {
+            text.style.transform = 'translate(-50%, -50%)'; // Вернуть текст в центр при уходе курсора
+        });
+    </script>
 
 </body>
 </html>

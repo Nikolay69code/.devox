@@ -3,106 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Раскрывающиеся поля</title>
+    <title>.devox - Дизайн и Разработка</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
     <style>
+        /* Основные стили */
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+        }
+
+        .logo-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        nav a {
+            margin: 5px 0;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .face-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .face-text h2 {
+            text-align: center;
+        }
+
+        .face-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .do-section, .section-price-table {
+            padding: 20px;
         }
 
         .accordion {
-            border: 1px solid #ccc;
-            border-radius: 5px;
             margin-bottom: 10px;
         }
 
         .accordion-header {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px;
             cursor: pointer;
-            background-color: #f1f1f1;
-            transition: background-color 0.3s;
-        }
-
-        .accordion-header:hover {
-            background-color: #e1e1e1;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
         }
 
         .accordion-content {
-            display: none;
-            padding: 15px;
-            border-top: 1px solid #ccc;
+            display: none; /* Скрыть содержимое по умолчанию */
+            padding: 10px;
+            background-color: #f1f1f1;
         }
 
-        .arrow {
-            transition: transform 0.3s;
+        .price-blocks {
+            display: flex;
+            flex-wrap: wrap; /* Позволяет элементам переходить на новую строку */
+            justify-content: space-around; /* Центрирование блоков */
         }
 
-        .arrow.open {
-            transform: rotate(90deg);
+        .price-block {
+            width: calc(50% - 20px); /* Две колонки с отступами */
+            margin-bottom: 20px; /* Отступ снизу */
+            text-align: center; /* Центрирование текста */
+        }
+
+        .price-block img {
+            max-width: 100%;
+            height: auto; /* Адаптивное изображение */
+        }
+
+        /* Медиа-запросы для мобильных устройств */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column; /* Упрощение навигации на мобильных */
+                align-items: center; 
+                font-size: 14px; /* Уменьшение размера шрифта */
+            }
+
+            .button {
+                width: 100%; /* Кнопка на всю ширину */
+                padding: 15px; /* Увеличение области нажатия */
+                font-size: 16px; /* Увеличение размера шрифта */
+            }
+
+            .face-block {
+                flex-direction: column; /* Вертикальное расположение для мобильных */
+                align-items: center; 
+                text-align: center; /* Центрирование текста */
+            }
+
+            .price-block {
+                width: calc(100% - 20px); /* Одна колонка на мобильных */
+                margin-bottom: 20px; /* Отступ снизу */
+            }
         }
     </style>
 </head>
 <body>
 
-<h2>Раскрывающиеся поля</h2>
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Логотип" class="logo-img"/>
+    </div>
+    <nav>
+        <a href="#what-we-do">Чем мы занимаемся</a>
+        <a href="#prices">Цены</a>
+        <a href="#development-process">Этапы разработки</a>
+    </nav>
+    <a href="#contactForm"><button class="button">Обсудить проект</button></a>
+</header>
 
-<div class="accordion">
-    <div class="accordion-header">
-        <span>Поле 1</span>
-        <span class="arrow">➔</span>
+<section class="face-block">
+    <div class="face-text">
+        <h2>Мы предлагаем <br> индивидуальные решения,<br> под ваши бизнес-цели</h2>
+        <p>Дизайн, мобильная разработка на iOS и Android, веб-разработка,<br> микросервисы, разработка кросс-платформенных приложений</p>
     </div>
-    <div class="accordion-content">
-        <p>Описание для первого поля.</p>
+    <div class="face-image">
+        <img src="images/iphone.png" alt="айфон" />
     </div>
-</div>
+</section>
 
-<div class="accordion">
-    <div class="accordion-header">
-        <span>Поле 2</span>
-        <span class="arrow">➔</span>
+<section id="what-we-do" class="do-section">
+    <h2>Чем мы занимаемся</h2>
+    <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <p>Созданием неповторимого дизайна</p>
+            <span class="arrow">➔</span>
+        </div>
+        <div class="accordion-content">
+            <p>Наша команда поможет вам с выбором сайтов, приложений и постов в социальных сетях</p>
+        </div>
     </div>
-    <div class="accordion-content">
-        <p>Описание для второго поля.</p>
+    <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Версткой сайтов + серверная часть
+            <span class="arrow">➔</span>
+        </div>
+        <div class="accordion-content">
+            <p>Разработка современных веб-приложений с использованием последних технологий.</p>
+        </div>
     </div>
-</div>
+    <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Мобильной разработкой под iOS и Android
+            <span class="arrow">➔</span>
+        </div>
+        <div class="accordion-content">
+            <p>Создание уникального дизайна, который выделит ваш продукт на рынке.</p>
+        </div>
+    </div>
+    <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+             Написанием ботов в Telegram и VK
+            <span class="arrow">➔</span>
+        </div>
+        <div class="accordion-content">
+            <p>Создание уникального дизайна, который выделит ваш продукт на рынке.</p>
+        </div>
+    </div>
+</section>
 
-<div class="accordion">
-    <div class="accordion-header">
-        <span>Поле 3</span>
-        <span class="arrow">➔</span>
+<section id="prices" class="section-price-table">
+    <h2>Цены</h2>
+    <p>Мы предлагаем конкурентоспособные цены на все наши услуги. Свяжитесь с нами для получения индивидуального предложения.</p>
+    <div class="price-blocks">
+        <div class="price-block">
+            <img src="images/design.png" alt="Описание изображения 1" class = "image-design">
+            <h3>Дизайн</h3>
+            <p>Описание услуги 1.</p>
+        </div>
+        <div class="price-block">
+            <img src="images/web-sait.png" alt="Описание изображения 2" class = "image-web-sait">
+            <h3>Создание сайтов</h3>
+            <p>Описание услуги 2.</p>
+        </div>
+        <div class="price-block">
+            <img src="images/android.png" alt="Описание изображения 3" class = "image-mobile">
+            <h3>Мобильная разработка</h3>
+            <p>Описание услуги 3.</p>
+        </div>
+        <div class="price-block">
+            <img src="images/image-bot.png" alt="Описание изображения 4" class = "image-bot">
+            <h3>Написание ботов</h3>
+            <p>Описание услуги 4.</p>
+        </div>
     </div>
-    <div class="accordion-content">
-        <p>Описание для третьего поля.</p>
-    </div>
-</div>
-
-<div class="accordion">
-    <div class="accordion-header">
-        <span>Поле 4</span>
-        <span class="arrow">➔</span>
-    </div>
-    <div class="accordion-content">
-        <p>Описание для четвертого поля.</p>
-    </div>
-</div>
+</section>
 
 <script>
-    const headers = document.querySelectorAll('.accordion-header');
-
-    headers.forEach(header => {
-        header.addEventListener('click', () => {
-            const content = header.nextElementSibling;
-            const arrow = header.querySelector('.arrow');
-
-            // Переключаем видимость контента
-            content.style.display = content.style.display === 'block' ? 'none' : 'block';
-
-            // Поворачиваем стрелку
-            arrow.classList.toggle('open');
-        });
-    });
+function toggleAccordion(header) {
+    const content = header.nextElementSibling;
+    content.style.display = content.style.display === "block" ? "none" : "block";
+}
 </script>
 
 </body>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>.devox - Дизайн и Разработка</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
 
@@ -13,7 +14,7 @@
         <img src="images/logo.png" alt="Логотип" class = "logo-img"/>
     </div>
     <nav>
-        <a href="#what-we-do">Что мы делаем</a>
+        <a href="#what-we-do">Чем мы занимаемся</a>
         <a href="#prices">Цены</a>
         <a href="#development-process">Этапы разработки</a>
     </nav>
@@ -166,62 +167,5 @@
 <button class="scroll-to-top" id="scrollToTopBtn">
     &#8593; <!-- Стрелка вверх -->
 </button>
-<script>
-    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-
-// Показать кнопку при прокрутке вниз
-window.onscroll = function() {
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollToTopBtn.style.display = 'flex'; // Показываем кнопку
-    } else {
-        scrollToTopBtn.style.display = 'none'; // Скрываем кнопку
-    }
-};
-
-// Прокрутка к началу страницы при нажатии на кнопку
-scrollToTopBtn.addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Плавная прокрутка
-    });
-});
-    function toggleAccordion(header) {
-    const content = header.nextElementSibling;
-    const arrow = header.querySelector('.arrow');
-
-    if (content.style.display === "block") {
-        content.style.display = "none";
-        arrow.style.transform = "rotate(0deg)"; // Поворачиваем стрелочку обратно
-    } else {
-        content.style.display = "block";
-        arrow.style.transform = "rotate(90deg)"; // Поворачиваем стрелочку вниз
-    }}
-    document.getElementById('contactForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-                const response = await fetch('/send', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                });
-
-                if (response.ok) {
-                    alert('Сообщение отправлено!');
-                } else {
-                    alert('Ошибка при отправке сообщения.');
-                }
-            } catch (error) {
-                console.error('Ошибка:', error);
-                alert('Ошибка при отправке сообщения.');
-            }
-        });
-</script>
-
 </body>
 </html>
