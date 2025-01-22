@@ -85,16 +85,11 @@ button:hover {
             cursor: pointer;
 }
 .face-text p{
+    flex-grow: 1;
     position: absolute;
             transition: transform 0.1s ease;
 }
-.face-text img{
-    padding-left: 45px;
-    width: auto;
-    max-height: 25%;
-    margin-top: 0; /* Убираем верхний отступ у изображения */
-            display: block;
-}
+
 .section {
     text-align: left;
     background-color: #0C0C0C;
@@ -277,14 +272,20 @@ form button {
 }
 
 .section-price-table{
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center;
+    flex-direction: column;
     background-color: #0C0C0C;
-    padding-left: 80px;
-    padding-right: 90px;
-    padding-bottom: 40px;
+}
+.head-prise{
+    display: flex;
+    justify-content: flex-start;
 }
 .section-price-table h2{
     font-size: 40px;
 }
+
 .section-price-table p{
     font-size: 20px;
 }
@@ -305,6 +306,9 @@ form button {
     margin: 20px 0;
 }
 .stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #FF007F;
     color: white;
     border-radius: 100px;
@@ -313,7 +317,7 @@ form button {
     text-align: center;
     position: relative;
     z-index: 1;
-    width: 150px; /* Ширина блока */
+    width: 50%; /* Ширина блока */
 }
 footer {
     margin-top: 30px;
@@ -352,7 +356,28 @@ footer {
     }
     .face-text {
         padding-right: 0; /* Убираем отступ для мобильных */
-        padding-bottom: 20px; /* Добавляем отступ снизу */
+        padding-bottom: 40px; /* Добавляем отступ снизу */
+    }
+    .face-text h2{
+        font-size: 40px;
+    }
+    .face-text p{
+        padding-left: 0px;
+        padding-top: 10px;
+        font-size: 20px;
+        margin-left: 0px;
+    }
+    .do-section{
+        padding-top: 100px;
+    }
+    .do-section h2{
+        font-size: 30px;
+    }
+    .accordion-header{
+        margin-right: 0px;
+    }
+    .accordion-header p{
+        padding-right: 40px;
     }
     .logo img {
         width: 100%; /* Уменьшаем размер логотипа на мобильных устройствах */
@@ -372,4 +397,23 @@ footer {
         width: calc(100% - 20px); /* Одна колонка на мобильных */
         margin-bottom: 20px; /* Отступ снизу */
     }
+    .section-price-table{
+        padding: 20px;
+    }
+    .head-prise h2{
+        font-size: 30px;
+    }
+    .row{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0px;
+    }
+    .stage{
+        width: 100%;
+        height: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
+
