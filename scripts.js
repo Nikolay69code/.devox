@@ -49,44 +49,5 @@ scrollToTopBtn.addEventListener('click', function() {
         arrow.style.transform = "rotate(90deg)"; // Поворачиваем стрелочку вниз
     }}
     //Отправка сообщений в тг
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Предотвращаем перезагрузку страницы
- 
-        const name = document.getElementById('name').value;
-        const contact = document.getElementById('contact').value;
-        const projectType = document.getElementById('project-type').value;
-        const description = document.getElementById('description').value;
- 
-        // Формируем сообщение
-        const text = `Новое сообщение от ${name}:\nEmail/Telegram: ${contact}\nТип проекта: ${projectType}\nОписание: ${description}`;
- 
-        // Отправляем сообщение в Telegram
-        const token = ''; // Ваш токен бота
-        const chatId = ''; // Ваш Chat ID
- 
-        fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: text,
-            }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                alert('Сообщение отправлено!');
-                document.getElementById('contactForm').reset(); // Сбрасываем форму
-            } else {
-                alert('Ошибка при отправке сообщения.');
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка:', error);
-            alert('Ошибка при отправке сообщения.');
-        });
-    });
     
  
